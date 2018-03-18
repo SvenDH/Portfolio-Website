@@ -1,0 +1,28 @@
+{% if not quickload %}{% extends "base.html" %}{% endif -%}
+{% set active_page = "contact" %}
+{% block app_content %}
+  <div class="info-block">
+    <div class="info-span">
+      <h1> Contact me </h1>
+      <hr>
+      <p>
+          <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+          Sven den Hartog <br>
+          <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+          <a href="mailto:denhartog.sven@gmail.com">email</a><br>
+          <span class="fa fa-linkedin-square" aria-hidden="true"></span>
+          <a href="https://www.linkedin.com/in/sven-den-hartog-98b89315b/">
+              linkedin
+          </a><br>
+          <span class="fa fa-github-square" aria-hidden="true"></span>
+          <a href="https://github.com/SvenDH">
+              github
+          </a><br>
+          <span class="fa fa-google-plus-square" aria-hidden="true"></span>
+          <a href="https://plus.google.com/100109790069985546605">
+              google+
+          </a>
+      </p>
+    </div>
+  </div>
+{% endblock %}

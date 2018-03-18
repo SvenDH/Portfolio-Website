@@ -1,0 +1,62 @@
+{% if not quickload %}{% extends "base.html" %}{% endif -%}
+{% set active_page = "index" %}
+{% block app_content %}
+<div class="home-block">
+    <h1>{{ params.hometext }}</h1>
+</div>
+<div class="info-block">
+    <div class="info-span row">
+        <h4>whoami</h4>
+        <p class="small-text">
+            Student Artificial Inteligence and graduate Software Science.
+            Specialized in machine learning applications for web and language interaction.
+            Passionate programmer with a competitive personality.
+            My hobbies include making and playing games and working on Raspberry Pi projects.
+        </p>
+    </div>
+    <hr>
+    <div class="info-span row">
+        <h4>skills</h4>
+        <ul class="list-group col-md-6">
+        {% for item in params.experience %}
+            <li class="list-group-item">
+                <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
+                {{ item }}
+            </li>
+        {% endfor %}
+        </ul>
+        <ul class="list-group col-md-6">
+        {% for item in params.skills %}
+            <li class="list-group-item">
+                <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
+                {{ item }}
+            </li>
+        {% endfor %}
+        </ul>
+    </div>
+    <hr>
+    <div class="info-span">
+        <h4>education</h4>
+        <ul class="list-group">
+        {% for item in params.education %}
+            <li class="list-group-item">
+                <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
+                {{ item }}
+            </li>
+        {% endfor %}
+        </ul>
+    </div>
+    <hr>
+    <div class="info-span">
+        <h4>achievements</h4>
+        <ul class="list-group">
+        {% for item in params.achievements %}
+            <li class="list-group-item">
+                <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
+                {{ item }}
+            </li>
+        {% endfor %}
+        </ul>
+    </div
+</div>
+{% endblock %}

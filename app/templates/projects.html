@@ -1,0 +1,12 @@
+{% if not quickload %}{% extends "base.html" %}{% endif -%}
+{% set active_page = "projects" %}
+{% block app_content %}
+  <div class="info-block">
+    {% for project in params.projects %}
+    <div class="info-span">
+        <h1> {{ project.name|e }} </h1>
+        <p> {{ project.description|e }} </p>
+    </div>
+    {% endfor %}
+  </div>
+{% endblock %}

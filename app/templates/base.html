@@ -1,0 +1,62 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet"
+      href="{{url_for('static', filename='style.css')}}"></link>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="{{
+        url_for('static', filename='jquery-3.3.1.min.js') }}">\x3C/script>')</script>
+<script src="{{url_for('static', filename='scroll-control.js') }}"></script>
+<script src="{{url_for('static', filename='fast-loading.js') }}"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% endblock %}
+
+{% block title %}
+  {{ params.name }}
+{% endblock %}
+
+{% set navigation_bar = [
+    ('index', 'Home'),
+    ('about', 'About'),
+    ('projects', 'Projects'),
+    ('contact', 'Contact')
+] -%}
+{% set active_page = active_page|default('index') -%}
+{% block navbar %}
+<div class="header">
+  <nav class="navbar navbar-default transparent">
+    <div class="container-fluid">
+      <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse"
+                  data-target="#main-menu">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        <a class="navbar-brand" href="#"></a>
+      </div>
+      <div class="collapse navbar-collapse" id="main-menu">
+        <ul class="nav navbar-nav navbar-right">
+          {% for id, caption in navigation_bar %}
+            <li{% if id == active_page %} class="active"{% endif%}>
+            <a href="{{ url_for(id|e) }}">{{ caption|e }}</a></li>
+          {% endfor %}
+        </ul>
+    </div>
+    </div>
+  </nav>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="body"
+     style="background: url({{ url_for('static', filename='home.jpg') }})">
+  {# application content needs to be provided in the app_content block #}
+  {% block app_content %}{% endblock %}
+</div>
+
+<div class="footer">
+    Website made by Sven den Hartog. - Powered by Flask
+</div>
+{% endblock %}
