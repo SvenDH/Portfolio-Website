@@ -5,7 +5,7 @@ from app import app
 @app.route('/index', methods=['GET', 'POST'])
 def index():
     params = {'name': 'Sven den Hartog',
-              'hometext': 'Sven den Hartog',
+              'hometext': 'Machine Learning and Web Technology',
                   'skills': ['Python',
                              'Java',
                              'HTML/CSS',
