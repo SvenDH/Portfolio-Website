@@ -13,7 +13,7 @@ function loadPage(url) {
 }
 
 $(document).ready(function() {
-    $('.nav a').click(function(e){
+    $('.navbar a').click(function(e){
         if (!('replaceState' in history)) return true
         if (e.which == 2 || e.metaKey || e.ctrlKey){
             return true
