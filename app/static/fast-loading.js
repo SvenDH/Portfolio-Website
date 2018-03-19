@@ -21,7 +21,7 @@ $(document).ready(function() {
         e.preventDefault();
         var url = $(this).attr('href');
         var li = $(this).parent();
-        history.pushState(null, null, url);
+        history.pushState({window.location}, null, url);
         loadPage(url);
         return false
     });
