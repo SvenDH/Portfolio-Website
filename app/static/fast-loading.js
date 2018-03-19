@@ -9,6 +9,8 @@ function loadPage(url) {
         //Change body content
         $('.body').html(data)
         $('.body').children().hide().fadeIn(500);
+        //Close menu
+        $(".navbar-collapse").collapse('hide');
     });
 }
 
