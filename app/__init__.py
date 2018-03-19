@@ -1,14 +1,14 @@
 from flask import Flask
 from flask_bootstrap import Bootstrap
+from flask_sitemap import Sitemap
 from flask import url_for
 import os
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY') or 'change-this-later'
-app.config['MONGO_DBNAME'] = 'restdb'
-app.config['MONGO_URI'] = 'mongodb://localhost:27017/restdb'
+app.config['SITEMAP_INCLUDE_RULES_WITHOUT_PARAMS'] = True
 
 bootstrap = Bootstrap(app)
+ext = Sitemap(app=app)
 
 @app.context_processor
 def override_url_for():
@@ -24,3 +24,6 @@ def dated_url_for(endpoint, **values):
     return url_for(endpoint, **values)
 
 from app import routes
+
+if __name__ == '__main__':
+    app.run(debug=True)

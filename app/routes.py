@@ -1,56 +1,34 @@
+import json
+import os
+import datetime
+from datetime import timedelta
 from flask import render_template, request
 from app import app
+
+SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
+json_url = os.path.join(SITE_ROOT, "static", "data.json")
 
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/index', methods=['GET', 'POST'])
 def index():
-    params = {'name': 'Sven den Hartog',
-              'hometext': 'Machine Learning and Web Technology',
-                  'skills': ['Python',
-                             'Java',
-                             'HTML/CSS',
-                             'Javascript/jQuery',
-                             'PHP',
-                             'MySQL',
-                             'RESTful APIs',
-                             'C/C++',
-                             'C#',
-                             'OpenGL/GLSL',
-                             'MATLAB'],
-              'experience': ['Machine learning',
-                             'Natural language processing',
-                             'Neural networks/deep learning',
-                             'Data analysis',
-                             'Web technology',
-                             'Algorithm design',
-                             'Object-oriented programming',
-                             'Math/statistics',
-                             'Agile/Scrum',
-                             'Computer graphics',
-                             'Android development'],
-               'education': ['[WIP] MS Artificial Inteligence - Radboud University',
-                             'BS Software Science - Eindhoven University of Technology'],
-            'achievements': ['Won the fastest sorting machine competition in my first university year',
-                             '']}
-    return render_template('index.html', title='Home', params=params,
+    data = json.load(open(json_url))
+    return render_template('index.html', title='Home', params=data,
                             quickload=request.is_xhr)
 
 @app.route('/projects', methods=['GET', 'POST'])
 def projects():
-    params = {'name': 'Sven den Hartog',
-              'projects': [{'name':'websites', 'description': 'wOW'},
-                           {'name':'games', 'description': 'ALSO wOW'}]}
-    return render_template('projects.html', title='Projects', params=params,
+    data = json.load(open(json_url))
+    return render_template('projects.html', title='Projects', params=data,
                             quickload=request.is_xhr)
 
 @app.route('/about', methods=['GET', 'POST'])
 def about():
-    params = {'name': 'Sven den Hartog'}
-    return render_template('about.html', title='About me', params=params,
+    data = json.load(open(json_url))
+    return render_template('about.html', title='About me', params=data,
                             quickload=request.is_xhr)
 
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
-    params = {'name': 'Sven den Hartog'}
-    return render_template('contact.html', title='Contact me', params=params,
+    data = json.load(open(json_url))
+    return render_template('contact.html', title='Contact me', params=data,
                             quickload=request.is_xhr)

@@ -1,4 +1,4 @@
-function Scroll() {
+function Scroll(duration) {
     var startY = $('.navbar').height();
     var pageH = $(document).height() - $(window).height();
     var scrollY = $(window).scrollTop();
@@ -13,7 +13,7 @@ function Scroll() {
     //Scroll background
     $('.body').animate({
         'background-position-x': parseInt(100*activeIndex/menuItems)+'%'
-    }, {queue: false, duration: 500}).animate({
+    }, {queue: false, duration: duration}).animate({
         'background-position-y': parseInt(100*scrollY/pageH)+'%'
     }, {duration: 0});
 
@@ -23,9 +23,9 @@ function Scroll() {
 
 $(document).ready(function() {
     $(window).on('scroll load resize', function(){
-        Scroll();
+        Scroll(0);
     });
     $('.body').on('DOMSubtreeModified', function(){
-        Scroll();
+        Scroll(500);
     });
 });

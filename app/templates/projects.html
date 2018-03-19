@@ -5,6 +5,7 @@
     {% for project in params.projects %}
     <div class="info-span">
         <h1> {{ project.name|e }} </h1>
+        <hr>
         <p> {{ project.description|e }} </p>
     </div>
     {% endfor %}

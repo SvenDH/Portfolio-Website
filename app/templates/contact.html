@@ -7,19 +7,19 @@
       <hr>
       <p>
           <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-          Sven den Hartog <br>
+          {{ params.name }}<br>
           <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
-          <a href="mailto:denhartog.sven@gmail.com">email</a><br>
+          <a href="{{ params.email }}">email</a><br>
           <span class="fa fa-linkedin-square" aria-hidden="true"></span>
-          <a href="https://www.linkedin.com/in/sven-den-hartog-98b89315b/">
+          <a href="{{ params.linkedin }}">
               linkedin
           </a><br>
           <span class="fa fa-github-square" aria-hidden="true"></span>
-          <a href="https://github.com/SvenDH">
+          <a href="{{ params.github }}">
               github
           </a><br>
           <span class="fa fa-google-plus-square" aria-hidden="true"></span>
-          <a href="https://plus.google.com/100109790069985546605">
+          <a href="{{ params.googleplus }}">
               google+
           </a>
       </p>
