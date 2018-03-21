@@ -2,31 +2,37 @@ $(document).bind('touchstart', handleTouchStart);
 $(document).bind('touchend', handleTouchMove);
 $(document).bind('keydown', handleKeyPress);
 
-var xDown = null;
+var xStart = null;
+var yStart = null;
 var startTime = null;
 
 function handleTouchStart(e) {
-    xDown = e.changedTouches[0].pageX;
+    xStart = e.changedTouches[0].pageX;
+    yStart = e.changedTouches[0].pageY;
     startTime = new Date().getTime();
 };
 
 function handleTouchMove(e) {
-    if ( !xDown || !startTime) {
+    if ( !xStart || !yStart || !startTime) {
         return;
     }
-    var xDiff = e.changedTouches[0].pageX - xDown;
+    var touchobj = e.changedTouches[0]
+    var xDiff = touchobj.pageX - xStart;
+    var yDiff = touchobj.pageY - yStart;
+    console.log(xDiff);
     var tDiff = new Date().getTime() - startTime;
-    if (tDiff < 500) {
+    if (tDiff < 200 && Math.abs(yDiff) < 100) {
         var menuItems = $('.nav li').length-1;
         var activeIndex = $('.nav li').index($('.active'));
 
-        if (xDiff < 300 && activeIndex < menuItems) {// right swipe
+        if (xDiff < -150 && activeIndex < menuItems) {// right swipe
             $('.nav a:eq('+parseInt(activeIndex+1)+')').click();
-        } else if (xDiff > 300 && activeIndex > 0) {// left swipe
+        } else if (xDiff > 150 && activeIndex > 0) {// left swipe
             $('.nav a:eq('+parseInt(activeIndex-1)+')').click();
         }
     }
-    xDown = null;
+    xStart = null;
+    yStart = null;
     startTime = null;
 };
 
