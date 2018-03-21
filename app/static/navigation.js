@@ -1,28 +1,33 @@
 $(document).bind('touchstart', handleTouchStart);
-$(document).bind('touchmove', handleTouchMove);
+$(document).bind('touchend', handleTouchMove);
 $(document).bind('keydown', handleKeyPress);
 
 var xDown = null;
+var startTime = null;
 
 function handleTouchStart(e) {
     xDown = e.touches[0].clientX;
+    startTime = new Date().getTime();
 };
 
 function handleTouchMove(e) {
-    if ( !xDown ) {
+    if ( !xDown || !startTime) {
         return;
     }
-    var xUp = e.touches[0].clientX;
-    var xDiff = xDown-xUp;
-    var menuItems = $('.nav li').length-1;
-    var activeIndex = $('.nav li').index($('.active'));
+    var xDiff = e.touches[0].clientX - xDown;
+    var tDiff = new Date().getTime() - startTime;
+    if (tDiff < 200) {
+        var menuItems = $('.nav li').length-1;
+        var activeIndex = $('.nav li').index($('.active'));
 
-    if (xDiff < 200 && activeIndex < menuItems) {// right swipe
-        $('.nav a:eq('+parseInt(activeIndex+1)+')').click();
-    } else if (xDiff > 200 && activeIndex > 0) {// left swipe
-        $('.nav a:eq('+parseInt(activeIndex-1)+')').click();
+        if (xDiff > 500 && activeIndex < menuItems) {// right swipe
+            $('.nav a:eq('+parseInt(activeIndex+1)+')').click();
+        } else if (xDiff < 500 && activeIndex > 0) {// left swipe
+            $('.nav a:eq('+parseInt(activeIndex-1)+')').click();
+        }
     }
     xDown = null;
+    startTime = null;
 };
 
 function handleKeyPress(e) {
