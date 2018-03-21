@@ -6,7 +6,7 @@ var xDown = null;
 var startTime = null;
 
 function handleTouchStart(e) {
-    xDown = e.touches[0].clientX;
+    xDown = e.changedTouches[0].pageX;
     startTime = new Date().getTime();
 };
 
@@ -14,7 +14,7 @@ function handleTouchMove(e) {
     if ( !xDown || !startTime) {
         return;
     }
-    var xDiff = e.touches[0].clientX - xDown;
+    var xDiff = e.changedTouches[0].pageX - xDown;
     var tDiff = new Date().getTime() - startTime;
     if (tDiff < 200) {
         var menuItems = $('.nav li').length-1;
