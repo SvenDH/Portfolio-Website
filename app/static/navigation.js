@@ -16,13 +16,13 @@ function handleTouchMove(e) {
     }
     var xDiff = e.changedTouches[0].pageX - xDown;
     var tDiff = new Date().getTime() - startTime;
-    if (tDiff < 200) {
+    if (tDiff < 500) {
         var menuItems = $('.nav li').length-1;
         var activeIndex = $('.nav li').index($('.active'));
 
-        if (xDiff < 150 && activeIndex < menuItems) {// right swipe
+        if (xDiff < 300 && activeIndex < menuItems) {// right swipe
             $('.nav a:eq('+parseInt(activeIndex+1)+')').click();
-        } else if (xDiff > 150 && activeIndex > 0) {// left swipe
+        } else if (xDiff > 300 && activeIndex > 0) {// left swipe
             $('.nav a:eq('+parseInt(activeIndex-1)+')').click();
         }
     }
