@@ -20,9 +20,9 @@ function handleTouchMove(e) {
         var menuItems = $('.nav li').length-1;
         var activeIndex = $('.nav li').index($('.active'));
 
-        if (xDiff > 150 && activeIndex < menuItems) {// right swipe
+        if (xDiff < 150 && activeIndex < menuItems) {// right swipe
             $('.nav a:eq('+parseInt(activeIndex+1)+')').click();
-        } else if (xDiff < 150 && activeIndex > 0) {// left swipe
+        } else if (xDiff > 150 && activeIndex > 0) {// left swipe
             $('.nav a:eq('+parseInt(activeIndex-1)+')').click();
         }
     }
