@@ -20,7 +20,8 @@
  "experience": ["Machine learning",
                 "Natural language processing",
                 "Neural networks/deep learning",
-                "Data analysis", "Web technology",
+                "Data analysis",
+                "Web technology",
                 "Algorithm design",
                 "Object-oriented programming",
                 "Math/statistics",
@@ -32,6 +33,6 @@
 "achievements":["Won the fastest sorting machine competition in my first university year",
                 ""],
   "shortabout": "Student Artificial Inteligence and graduate Software Science. Specialized in machine learning applications for web and language interaction. Passionate programmer with a competitive personality. My hobbies include making and playing games and working on Raspberry Pi projects.",
-       "about": "I'm a master student Artificial Intelligence at Radboud University. ",
+       "about": "Hello! My name is Sven and I'm a master student Artificial Intelligence at Radboud University. In my bachelor Software Science I specialized in web technologies, AI, computer graphics and game design. I became interested in computer graphics in games and combining web technology and AI. After my bachelor I chose to continue with AI and specialize in web and language interaction, but I'm still interested in computer graphics and I regularly make games as a hobby. ",
     "projects": [{"name":"websites", "description": "wOW"},
                  {"name":"games", "description": "ALSO wOW"}]}
