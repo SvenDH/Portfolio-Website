@@ -19,7 +19,6 @@ function handleTouchMove(e) {
     var touchobj = e.changedTouches[0]
     var xDiff = touchobj.pageX - xStart;
     var yDiff = touchobj.pageY - yStart;
-    console.log(xDiff);
     var tDiff = new Date().getTime() - startTime;
     if (tDiff < 200 && Math.abs(yDiff) < 100) {
         var menuItems = $('.nav li').length-1;

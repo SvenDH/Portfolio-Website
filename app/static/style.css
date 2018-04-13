@@ -76,6 +76,12 @@ a:hover {
     color: rgb(81, 81, 81);
 }
 
+.home-block img {
+    position: absolute;
+    align: center;
+    bottom: 10px;
+}
+
 .info-block {
     background-color: #f6f6f6;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -87,6 +93,10 @@ a:hover {
     margin: 0 auto;
     color: rgb(81, 81, 81);
     padding: 0 50px 20px 50px;
+}
+
+.info-span img {
+    margin: 10px;
 }
 
 .small-text {
